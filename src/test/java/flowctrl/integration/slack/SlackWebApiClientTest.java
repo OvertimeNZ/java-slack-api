@@ -94,6 +94,12 @@ public class SlackWebApiClientTest {
 	}
 
 	@Test
+	public void userInviteTest() {
+		boolean invitedSuccessfully = webApiClient.inviteUser("test"+System.nanoTime() + "@troycornwall.net", true);
+		Assert.assertTrue(invitedSuccessfully);
+	}
+
+	@Test
 	public void basicTest() {
 		Authentication authentication = webApiClient.auth();
 		String user = authentication.getUser();

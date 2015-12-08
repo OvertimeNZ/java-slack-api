@@ -215,5 +215,6 @@ public interface SlackWebApiClient {
 	List<User> getUserListWithPresence();
 	boolean setActiveUser();
 	boolean setPresenceUser(Presence presence);
+	boolean inviteUser(String email, Boolean setActive);
 
 }

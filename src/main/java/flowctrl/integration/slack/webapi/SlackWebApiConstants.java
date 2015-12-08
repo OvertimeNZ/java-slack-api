@@ -143,5 +143,6 @@ public interface SlackWebApiConstants {
 	public static final String USERS_LIST = "users.list";
 	public static final String USERS_SET_ACTIVE = "users.setActive";
 	public static final String USERS_SET_PRESENCE = "users.setPresence";
+	public static final String USERS_INVITE = "users.admin.invite";
 
 }

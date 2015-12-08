@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import flowctrl.integration.slack.webapi.method.users.*;
 import org.apache.http.HttpEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 
@@ -115,11 +116,6 @@ import flowctrl.integration.slack.webapi.method.usergroups.UsergroupsListMethod;
 import flowctrl.integration.slack.webapi.method.usergroups.UsergroupsUpdateMethod;
 import flowctrl.integration.slack.webapi.method.usergroups.users.UsergroupsUsersListMethod;
 import flowctrl.integration.slack.webapi.method.usergroups.users.UsergroupsUsersUpdateMethod;
-import flowctrl.integration.slack.webapi.method.users.UserGetPresenceMethod;
-import flowctrl.integration.slack.webapi.method.users.UserInfoMethod;
-import flowctrl.integration.slack.webapi.method.users.UserListMethod;
-import flowctrl.integration.slack.webapi.method.users.UserSetActiveMethod;
-import flowctrl.integration.slack.webapi.method.users.UserSetPresenceMethod;
 
 public class SlackWebApiClientImpl implements SlackWebApiClient {
 
@@ -1123,6 +1119,11 @@ public class SlackWebApiClientImpl implements SlackWebApiClient {
 			throw new SlackArgumentException("invalid presence(auto|away)");
 		}
 		return isOk(new UserSetPresenceMethod(presence.name().toLowerCase()));
+	}
+
+	@Override
+	public boolean inviteUser(String email, Boolean setActive) {
+		return isOk(new UserInviteMethod(email, setActive));
 	}
 
 	// function
